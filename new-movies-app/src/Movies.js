@@ -37,7 +37,10 @@ const Movies = (props) => {
                 </td>
                 <td key="5">{m.rating}/5</td>
                 <td key="6">
-                    <button type="button" onClick={() => {console.log(m.name + "` deleted!"); deleteMovie(m.id)}}>Delete</button>
+                    <form method='post' action="/api/delete">
+                    <input name='data' hidden type='text' value={[m.name,m.releaseDate,m.actors]}/>
+                    <input type='submit' value='Del'/>
+                    </form>
                 </td>
                 </tr>
             ))}

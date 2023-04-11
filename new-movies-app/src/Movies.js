@@ -3,13 +3,8 @@ import Container from 'react-bootstrap/Container';
 
 const Movies = (props) => {
     let movies = props.movies;
-
-    function deleteMovie(id) {
-        props.setMovies(prevMovies => prevMovies.filter(movie => movie.id !== id));
-      }
       
       
-
     if (movies == null) {
         return <h1>Loading...</h1>;
     }

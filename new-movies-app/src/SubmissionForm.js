@@ -10,39 +10,6 @@ function SubmissionForm(props) {
     const txtMoviePoster = useRef();
     const intMovieRating = useRef();
 
-    /*const submit = (e) => {
-        e.preventDefault();
-        const movieArray = [];
-        props.movies.forEach( movie => {
-            movieArray.push(movie);
-        })
-        
-        const name = txtMovieName.current.value;
-        const date = txtMovieRelease.current.value;
-        const actors = txtMovieActors.current.value;
-        const posterImage = txtMoviePoster.current.value;
-        const rating = intMovieRating.current.value;
-
-        const id = movieArray.length + 1;
-        console.log(movieArray);
-
-        movieArray.push(
-                {"id": id,
-                "name": name,
-                "releaseDate": date,
-                "actors": actors,
-                "posterImage": posterImage,
-                "rating": rating}
-        )
-        props.setMovies(movieArray);
-
-        txtMovieName.current.value = "";
-        txtMovieRelease.current.value = "";
-        txtMovieActors.current.value = "";
-        txtMoviePoster.current.value = "";
-        intMovieRating.current.value = "";
-    };*/
-
     return (
         <Container fluid='sm'>
         <form method="post" action="/submission" id="form_display">

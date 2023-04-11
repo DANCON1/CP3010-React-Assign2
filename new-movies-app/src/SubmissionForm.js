@@ -10,7 +10,7 @@ function SubmissionForm(props) {
     const txtMoviePoster = useRef();
     const intMovieRating = useRef();
 
-    const submit = (e) => {
+    /*const submit = (e) => {
         e.preventDefault();
         const movieArray = [];
         props.movies.forEach( movie => {
@@ -41,13 +41,11 @@ function SubmissionForm(props) {
         txtMovieActors.current.value = "";
         txtMoviePoster.current.value = "";
         intMovieRating.current.value = "";
-    };
+    };*/
 
     return (
-        <>
-          
         <Container fluid='sm'>
-        <form onSubmit={submit} id="form_display">
+        <form method="post" action="/submission" id="form_display">
             <br></br>
             <Row><Col>
             <h1>Submission Form!</h1>
@@ -55,6 +53,7 @@ function SubmissionForm(props) {
             <br></br>
             <Row><Col>
             <input
+                name="title"
                 ref={txtMovieName}
                 type="text"
                 placeholder="Enter Movie Title">  
@@ -63,6 +62,7 @@ function SubmissionForm(props) {
             <br></br>
             <Row><Col>
             <input
+                name="releaseDate"
                 ref={txtMovieRelease}
                 type="text"
                 placeholder="Enter Release Date">  
@@ -71,6 +71,7 @@ function SubmissionForm(props) {
             <br></br>
             <Row><Col>
             <input
+                name="actors"
                 ref={txtMovieActors}
                 type="text"
                 placeholder="Enter Actors">  
@@ -79,6 +80,7 @@ function SubmissionForm(props) {
             <br></br>
             <Row><Col>
             <input
+                name="poster"
                 ref={txtMoviePoster}
                 type="text"
                 placeholder="Enter Poster Image URL">  
@@ -88,17 +90,17 @@ function SubmissionForm(props) {
             <Row><Col>
             <label>Assign rating!&nbsp;&nbsp;&nbsp;</label>
             <input
+                name="rating"
                 ref={intMovieRating}
                 type="number" step="0.1" min="0" max="5">  
             </input>
             </Col></Row>
             <br></br>
             <Row><Col>
-            <button>Submit!</button>
+            <input type="submit" value="Submit" />
             </Col></Row>
         </form>
         </Container>
-    </>
     );
 }
 

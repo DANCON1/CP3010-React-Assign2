@@ -11,12 +11,16 @@ const app = express();
 const port = 8000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
-
+app.use(express.static(path.join(__dirname, '../build')));
 app.use(express.static(path.join(__dirname, '../posters')));
 
 const upload = multer({ dest: 'posters/' })
 
-app.get('/movies', async (req, res) => {
+app.get(/^(?!\/api).+/, (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'));
+});
+
+app.get('/api/movies', async (req, res) => {
 
     console.log('get!');
 
@@ -30,11 +34,7 @@ app.get('/movies', async (req, res) => {
     res.json(movieData);
 })
 
-app.get('/hello', (req, res) => {
-    res.send('Hello!');
-});
-
-app.post('/submission', upload.single('movie_poster'), async (req,res) => {
+app.post('/api/submission', upload.single('movie_poster'), async (req,res) => {
     const client = new MongoClient('mongodb://127.0.0.1:27017');
     await client.connect();
 

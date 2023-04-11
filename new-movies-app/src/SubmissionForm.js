@@ -12,7 +12,7 @@ function SubmissionForm(props) {
 
     return (
         <Container fluid='sm'>
-        <form method="post" action="/submission" enctype="multipart/form-data" id="form_display">
+        <form method="post" action="/api/submission" enctype="multipart/form-data" id="form_display">
             <br></br>
             <Row><Col>
             <h1>Submission Form!</h1>

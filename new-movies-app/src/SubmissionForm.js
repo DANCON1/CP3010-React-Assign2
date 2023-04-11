@@ -12,7 +12,7 @@ function SubmissionForm(props) {
 
     return (
         <Container fluid='sm'>
-        <form method="post" action="/submission" id="form_display">
+        <form method="post" action="/submission" enctype="multipart/form-data" id="form_display">
             <br></br>
             <Row><Col>
             <h1>Submission Form!</h1>
@@ -47,10 +47,10 @@ function SubmissionForm(props) {
             <br></br>
             <Row><Col>
             <input
-                name="poster"
+                name="movie_poster"
                 ref={txtMoviePoster}
-                type="text"
-                placeholder="Enter Poster Image URL">  
+                type="file"
+                accept="image/png, image/jpeg">  
             </input>
             </Col></Row>
             <br></br>
